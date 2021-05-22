@@ -1,0 +1,15 @@
+# Lab 1 - Introduction
+
+In this challenge, we will cover the basics of the free reverse-engineering tool [Ghidra](https://ghidra-sre.org/) and find our first flag.
+
+To use Ghidra, you first need to have a basic understanding of assembly. When you compile a program, your assembler takes your written code and converts it into a series of instructions for a processor. Different processor architectures use different machine instructions (or "opcodes"), which operate on some number of bits, generally to either move or change the bits in some way. Different compilers can have different methods for breaking your code into opcodes, which means that the process of compiling a program is not reversible. What a decompiler like Ghidra does is look at the raw binary of a program, try to determine what processor architecture the code is meant to run on, and then attempt to map the binary in the program to the opcodes of a processor to produce assembly code. Ghidra is a free tool for doing this, which is produced (and used) by the National Security Agency (NSA). To get started, download Ghidra and get it working (this may take some doing!), then create a new project and import this file. When you import this file, Ghidra likely won't automatically identify the processor, because we've stripped most of the file contents to make the assembly easier to understand. Specify that the Language was compiled for a 64-bit x86 processor by gcc. All binaries for this quest line will be 64-bit x86 gcc, so you should probably have an [instruction list](https://en.wikipedia.org/wiki/X86_instruction_listings) handy. Remember that reverse engineering is about targeted understanding, not total understanding, so don't waste time reading the instructions list, just be prepared to reference it as necessary to complete the task at hand. Once you specify the language, Ghidra will load the file and display a summary, which we'll cover in more detail in a later exercise. When you double click on the file, or click on the image of Ghidra (looks like a green dragon), it should pull up a new window and ask you if you want to analyze the code. You would! Scroll through all the different options to see what's there, but for now just use the defaults and click Analyze.
+
+Let's try to get a basic understanding of x86-64 assembly. Here is an assembly command:
+MOV	RDI, 0x6
+In this command, the value 0x6 (6) is MOVed into the register named RDI. This is the format of all x86-64 assembly. The first value is altered by the second value. Let's look at another example.
+MOV	RSI, 0x10
+ADD	RSI, 0x4
+In this command, the value 0x10 (16) is MOVed into the register named RSI. Then, 0x4 (4) is ADDed to the value stored in RSI, giving us the value 0x14 (20) being stored in RSI.
+In all of the above, the opcode is given first (MOV or ADD, in this case), and the operands are all that follows (RDI, RSI, 0x6, 0x10, and 0x4, respectively).
+
+Answer: `#s$A4JDZ`
