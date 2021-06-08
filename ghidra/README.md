@@ -10,6 +10,7 @@ Ideas for challenges:
 
 * Make a rot13 function
   * Make all sorts of functions to obfuscate stuff.
+* Overload operators
 
 Final Challenge Ideas:
 
