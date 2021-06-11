@@ -1,9 +1,28 @@
 #include "class.h"
 
-FlagClass::setFlag(string flag) {
-    this.flag = flag;
+using std::string;
+
+FlagClass::FlagClass() {
+    flag = "y2SU$I:CN5E#&KVu";
 }
 
-FlagClass::obfu() {
-    string temp = this.flag;
+void FlagClass::obfu() {
+    string temp = flag;
+    flag.clear();
+    
+    for (int i = temp.length() - 1; i >= 0; --i) {
+        char c = temp.at(i);
+        if (i % 2) {
+            c++;
+        }
+        else {
+            c--;
+        }
+
+        flag += c;
+    }
 }
+
+// string FlagClass::getFlag() {
+//     return flag;
+// }

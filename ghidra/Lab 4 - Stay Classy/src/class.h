@@ -2,12 +2,15 @@
 #ifndef FLAGCLASS_H
 #define FLAGCLASS_H
 
+using std::string;
+
 class FlagClass {
   public:
+    FlagClass();
     void obfu();
-    void setFlag(string flag);
+    // string getFlag();
   private:
     string flag;
-}
+};
 
 #endif
