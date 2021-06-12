@@ -11,10 +11,10 @@ class FlagClass {
     FlagClass();
     void obfu();
     string getFlag();
-    void operator +(string s);
-    void operator -(string s);
-    void operator *(string s);
-    void operator /(string s);
+    void operator +=(string& lhs, string& rhs);
+    void operator -=(string& lhs, string& rhs);
+    void operator *=(string& lhs, string& rhs);
+    void operator /=(string& lhs, string& rhs);
   private:
     string flag;
 };
