@@ -66,11 +66,7 @@ FlagClass::FlagClass() {
 void FlagClass::operator +=(string s) {
     // For every character in s, add its value to the character at that index in flag
     for (int i = 0; i < s.length(); ++i) {
-        char c = flag[i] - 0x20;
-        c += s[i] - 0x20;
-        c %= 0x7e - 0x20;
-        c += 0x20;
-        // char c = (flag[i] + (s[i] - 0x20)) % 0x7e;
+        char c = (flag[i] + (s[i] - 0x20)) % 0x7e;
         if (c < 0x21) {
             c += 0x21;
         }
@@ -90,6 +86,8 @@ void FlagClass::operator -=(string s) {
                 c = 0x7e;
             }
         }
+        c += 0x20;
+        
         cout << flag[i] << " (" << (int)flag[i] - 0x20 << ") - " << s[i] << " (" << (int)s[i] - 0x20 << ") = " << c << " (" << (int)c - 0x20 << ")" << endl;
         flag[i] = c;
     }
