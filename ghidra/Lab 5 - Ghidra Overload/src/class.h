@@ -9,12 +9,16 @@ using std::string;
 class FlagClass {
   public:
     FlagClass();
-    void obfu();
+    // void obfu();
     string getFlag();
-    void operator +=(string& lhs, string& rhs);
-    void operator -=(string& lhs, string& rhs);
-    void operator *=(string& lhs, string& rhs);
-    void operator /=(string& lhs, string& rhs);
+    // void operator +=(string& lhs, string& rhs);
+    // void operator -=(string& lhs, string& rhs);
+    // void operator *=(string& lhs, string& rhs);
+    // void operator /=(string& lhs, string& rhs);
+    void operator +=(string s);
+    void operator -=(string s);
+    void operator *=(string s);
+    void operator /=(string s);
   private:
     string flag;
 };
