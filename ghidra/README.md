@@ -11,6 +11,7 @@ Ideas for challenges:
 * Make a rot13 function
   * Make all sorts of functions to obfuscate stuff.
 * Overload operators
+* Class inheritance and friends
 
 Final Challenge Ideas:
 
