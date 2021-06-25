@@ -2,4 +2,4 @@
 
 Reverse engineer this binary using Ghidra and retrieve the flag string.
 
-`Answer: vyfgdohs!D&Nmd6P`
+`Answer: b_PhJrMR$vd&.07W`

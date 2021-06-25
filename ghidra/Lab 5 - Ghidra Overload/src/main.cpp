@@ -1,25 +1,12 @@
 #include "class.h"
-#include <iostream>
-
-using std::cout;
-using std::endl;
 
 int main() {
     FlagClass flagClass = FlagClass();
 
-    // flagClass.obfu();
-
-    flagClass += "aaaaaaaaaaaaaaaa";
-    cout << "Finished add" << endl;
-    cout << flagClass.getFlag() << endl;
-    flagClass -= "aaaaaaaaaaaaaaaa";
-    cout << "Finished sub" << endl;
-    cout << flagClass.getFlag() << endl;
-    flagClass /= "test_div";
-    cout << "Finished div" << endl;
-    flagClass *= "test_mult";
-
-    cout << flagClass.getFlag();
+    flagClass += "8R*x#%&6sbfZHL@D";
+    flagClass -= "wtbQ#nj3GTB6eHr5";
+    flagClass /= "MY&%w@NorALwcr4H";
+    flagClass *= "HbC@d^7KJN&dL7JN";
 
     return 0;
 }
