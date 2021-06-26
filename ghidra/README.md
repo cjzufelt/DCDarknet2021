@@ -12,6 +12,7 @@ Ideas for challenges:
   * Make all sorts of functions to obfuscate stuff.
 * Overload operators
 * Class inheritance and friends
+* Using several different hashing/encryption algorithms
 
 Final Challenge Ideas:
 
