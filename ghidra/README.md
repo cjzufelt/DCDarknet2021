@@ -13,6 +13,7 @@ Ideas for challenges:
 * Overload operators
 * Class inheritance and friends
 * Using several different hashing/encryption algorithms
+* Threading
 
 Final Challenge Ideas:
 

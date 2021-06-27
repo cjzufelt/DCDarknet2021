@@ -2,11 +2,9 @@
 
 using std::string;
 
+string obfu1(string flag) {
+    // Reverses the string
 
-#include <iostream>
-using std::cout;
-
-string reverse(string flag) {
     string temp = flag;
     flag.clear();
 
@@ -17,7 +15,8 @@ string reverse(string flag) {
     return flag;
 }
 
-string rot(string flag, int rot_val) {
+void obfu2(string& flag, int rot_val) {
+    // Rot function with variable rot
     for (int i = 0; i < flag.length(); i++) {
         for (int j = 0; j < rot_val; j++) {
             if (flag.at(i) < 0x7e) {
@@ -28,11 +27,10 @@ string rot(string flag, int rot_val) {
             }
         }
     }
-
-    return flag;
 }
 
-string swapperoo(string flag) {
+string obfu3(string flag) {
+    // Swap the positions of pairs of characters
     for (int i = 0; i < flag.length() - 1; i+=2) {
         char temp = flag[i];
         flag[i] = flag[i + 1];
@@ -42,8 +40,8 @@ string swapperoo(string flag) {
     return flag;
 }
 
-string atoz(string flag) {
-    // Convert all 'a's to 'z's
+string obfu4(string flag) {
+    // Switch 'a's to 'z's
     for (int i = 0; i < flag.length(); ++i) {
         if (flag[i] == 'a') {
             flag[i] == 'z';
@@ -56,7 +54,8 @@ string atoz(string flag) {
     return flag;
 }
 
-string leetspeak(string flag) {
+string obfu5(string flag) {
+    // Translates things to leetspeak
     // Follow this for letters to numbers: http://www.cplusplus.com/forum/lounge/105574/
         // a -> 4
         // e -> 3
@@ -74,7 +73,6 @@ string leetspeak(string flag) {
         // 7 = T
         // 8 = B
         // 9 = g
-    // Consider purposely making one of these an 'if' when it should be an 'else if' just to confuse the fans 
     for (int i = 0; i < flag.length(); ++i) {
         if (flag[i] == 'a') {
             flag[i] = '4';
@@ -141,7 +139,8 @@ string leetspeak(string flag) {
     return flag;
 }
 
-string reverseCapitalization(string flag) {
+void obfu6(string& flag) {
+    // Reverses capitalization of alphabetic characters
     for (int i = 0; i < flag.length(); ++i) {
         if ((flag[i] >= 0x41) && (flag[i] <= 0x5a)) {
             flag[i] += 0x20;
@@ -150,24 +149,33 @@ string reverseCapitalization(string flag) {
             flag[i] -= 0x20;
         }
     }
-
-    return flag;
 }
 
 int main() {
     string flag = "xZHpKXtAr&5mrEc%";
 
-    flag = reverseCapitalization(flag);
-    flag = rot(flag, 8);
-    flag = reverse(flag);
-    flag = swapperoo(flag);
-    cout << "Before leetspeak: " << flag << "\n";
-    flag = leetspeak(flag);
-    cout << "After leetspeak: " << flag << "\n";
-    flag = atoz(flag);
-    flag = rot(flag, 12);
+    obfu6(flag);
+    // cout << "After reverseCapitalization: " << flag << "\n";
+    obfu2(flag, 8);
+    // cout << "After rot8: " << flag << "\n";
+    flag = obfu1(flag);
+    // cout << "After reverse: " << flag << "\n";
+    flag = obfu3(flag);
+    // cout << "After swapperoo: " << flag << "\n";
+    flag = obfu5(flag);
+    // cout << "After leetspeak: " << flag << "\n";
+    flag = obfu4(flag);
+    // cout << "After atoz: " << flag << "\n";
+    obfu2(flag, 12);
+    // cout << "After rot12: " << flag << "\n";
+    obfu6(flag);
+    // cout << "After reverseCapitalization: " << flag << "\n";
+    flag = obfu5(flag);
+    // cout << "After leetspeak: " << flag << "\n";
+    obfu2(flag, 3);
+    // cout << "After rot3: " << flag << "\n";
 
-    cout << flag;
+    // cout << flag << "\n";
 
     return 0;
 }
