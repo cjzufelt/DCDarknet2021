@@ -141,11 +141,23 @@ string leetspeak(string flag) {
     return flag;
 }
 
-// TODO: Needs more scrambling functions
+string reverseCapitalization(string flag) {
+    for (int i = 0; i < flag.length(); ++i) {
+        if ((flag[i] >= 0x41) && (flag[i] <= 0x5a)) {
+            flag[i] += 0x20;
+        }
+        else if ((flag[i] >= 0x61) && (flag[i] <= 0x7a)) {
+            flag[i] -= 0x20;
+        }
+    }
+
+    return flag;
+}
 
 int main() {
     string flag = "xZHpKXtAr&5mrEc%";
 
+    flag = reverseCapitalization(flag);
     flag = rot(flag, 8);
     flag = reverse(flag);
     flag = swapperoo(flag);
