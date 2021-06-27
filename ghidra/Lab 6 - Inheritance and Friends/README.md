@@ -1,2 +1,0 @@
-# Lab 6 - Inheritance and Friends
-
