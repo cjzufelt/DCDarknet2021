@@ -15,7 +15,7 @@ int main() {
 
     SHA1(flag, 16, sha1_digest);
 
-    // Convert the hash to hex. It will make things easier on the players
+    // Convert the hash to hex.
     int i;
     for (i = 0; i < SHA_DIGEST_LENGTH; i++) {
         printf("%02x ", sha1_digest[i]);
@@ -24,6 +24,8 @@ int main() {
 
     const string AES_128_KEY_HEX = "66546A576D5A7134743777217A25432A";
     const string AES_128_IV_HEX = "4D6251655468576D597133743677397A";
+
+    
 
     return 0;
 }
