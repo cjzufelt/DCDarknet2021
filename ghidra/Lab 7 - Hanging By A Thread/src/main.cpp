@@ -1,11 +1,16 @@
 #include <string>
 #include <thread>
 #include <iostream>
+#include <mutex>
 
 using std::string;
 using std::thread;
 using std::cout;
 using std::ref;
+using std::mutex;
+
+string flag;
+mutex _mutex;
 
 // void one(char* flag) {
 //     *flag = "abcd";
@@ -27,33 +32,41 @@ using std::ref;
 //     *(flag + 16) = '\0';
 // }
 
-void one(string& flag) {
+void one() {
+    _mutex.lock();
     flag += "abcd";
+    _mutex.unlock();
 }
 
-void two(string& flag) {
+void two() {
+    _mutex.lock();
     flag += "efgh";
+    _mutex.unlock();
 }
 
-void three(string& flag) {
+void three() {
+    _mutex.lock();
     flag += "ijkl";
+    _mutex.unlock();
 }
 
-void four(string& flag) {
+void four() {
+    _mutex.lock();
     flag += "mnop";
+    _mutex.unlock();
 }
 
 int main() {
     // string flag = "qS#Jz^Wf3!Tg5!8r";
 
-    string flag;
+    // string flag;
 
     // char* flag = new char[17];
 
-    thread first (one, ref(flag));
-    thread second (two, ref(flag));
-    thread third (three, ref(flag));
-    thread fourth (four, ref(flag));
+    thread first (one);
+    thread second (two);
+    thread third (three);
+    thread fourth (four);
     // thread fifth (five, flag);
 
     first.join();
