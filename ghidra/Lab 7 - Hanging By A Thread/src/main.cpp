@@ -6,31 +6,11 @@
 using std::string;
 using std::thread;
 using std::cout;
-using std::ref;
 using std::mutex;
+
 
 string flag;
 mutex _mutex;
-
-// void one(char* flag) {
-//     *flag = "abcd";
-// }
-
-// void two(char* flag) {
-//     *(flag + 4) = "efgh";
-// }
-
-// void three(char* flag) {
-//     *(flag + 8) = "ijkl";
-// }
-
-// void four(char* flag) {
-//     *(flag + 12) = "mnop";
-// }
-
-// void five(char* flag) {
-//     *(flag + 16) = '\0';
-// }
 
 void one() {
     _mutex.lock();
@@ -57,30 +37,21 @@ void four() {
 }
 
 int main() {
+    // TODO: Schedule the threads to run in a certain order. Currently, they run randomly
+    // (obviously, the typically run in order, but not always)
     // string flag = "qS#Jz^Wf3!Tg5!8r";
-
-    // string flag;
-
-    // char* flag = new char[17];
 
     thread first (one);
     thread second (two);
     thread third (three);
     thread fourth (four);
-    // thread fifth (five, flag);
 
     first.join();
     second.join();
     third.join();
     fourth.join();
-    // fifth.join();
-
-    // TODO: Add threads here
-
 
     cout << flag;
-
-    // delete flag;
 
     return 0;
 }
