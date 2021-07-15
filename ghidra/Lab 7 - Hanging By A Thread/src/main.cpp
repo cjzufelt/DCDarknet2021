@@ -1,45 +1,43 @@
 #include <string>
 #include <thread>
-#include <iostream>
 #include <mutex>
 
 using std::string;
 using std::thread;
-using std::cout;
 using std::mutex;
 
 
 string flag;
-mutex _mutex;
+mutex mutex1;
+mutex mutex2;
+mutex mutex3;
 
 void one() {
-    _mutex.lock();
-    flag += "abcd";
-    _mutex.unlock();
+    flag += "qS#J";
+    mutex1.unlock();
 }
 
 void two() {
-    _mutex.lock();
-    flag += "efgh";
-    _mutex.unlock();
+    mutex2.lock();
+    flag += "3!Tg";
+    mutex3.unlock();
 }
 
 void three() {
-    _mutex.lock();
-    flag += "ijkl";
-    _mutex.unlock();
+    mutex1.lock();
+    flag += "z^Wf";
+    mutex2.unlock();
 }
 
 void four() {
-    _mutex.lock();
-    flag += "mnop";
-    _mutex.unlock();
+    mutex3.lock();
+    flag += "5!8r";
 }
 
 int main() {
-    // TODO: Schedule the threads to run in a certain order. Currently, they run randomly
-    // (obviously, the typically run in order, but not always)
-    // string flag = "qS#Jz^Wf3!Tg5!8r";
+    mutex1.lock();
+    mutex2.lock();
+    mutex3.lock();
 
     thread first (one);
     thread second (two);
@@ -50,8 +48,6 @@ int main() {
     second.join();
     third.join();
     fourth.join();
-
-    cout << flag;
 
     return 0;
 }
