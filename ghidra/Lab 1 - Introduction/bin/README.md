@@ -1,0 +1,1 @@
+# Note that the `lab1` binary is the correct binary. It has been stripped to only its vital bits
