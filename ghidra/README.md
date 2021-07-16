@@ -6,6 +6,12 @@ The goal of all challenges is to retrieve the flag string. These challenges were
 
 All binaries were compiled with a GNU/Linux machine using gcc or g++ with x86-64 bit little-endian architecture.
 
+Contained in each Lab directory is three additional directories:
+
+* `bin/` - Contains the binary for the lab
+* `src/` - Contains the source code for the lab
+* `ghidra/` - Contains my Ghidra project where I confirmed that everything looked correct.
+
 Ideas for challenges:
 
 * Using several different hashing/encryption algorithms
