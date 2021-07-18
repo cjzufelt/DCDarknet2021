@@ -12,12 +12,7 @@ Contained in each Lab directory is three additional directories:
 * `src/` - Contains the source code for the lab
 * `ghidra/` - Contains my Ghidra project where I confirmed that everything looked correct.
 
-Ideas for challenges:
-
-* Using several different hashing/encryption algorithms
-* Threading
-
 Final Challenge Ideas:
 
-* They need to figure out a string which will be used as a key to decrypt another string in another file which is the actual answer.
-  * -Or- They need to edit the binary to get the executable to decrypt the other file.
+* Obfuscate the binary in a similar fashion to Stuxnet. They would have to deobfuscate it before being able to put it through Ghidra
+* Require a certain environment for execution. Get them to figure out what that special environment is.

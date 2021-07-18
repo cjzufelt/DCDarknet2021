@@ -1,6 +1,6 @@
 # Lab 4 - Stay Classy
 
-Reverse engineer this binary using Ghidra and retrieve the flag string.
+Reverse engineer this binary using Ghidra and retrieve the flag string at the end of execution.
 
 `Answer: vUL%$D6MD9J#VR3x`
 

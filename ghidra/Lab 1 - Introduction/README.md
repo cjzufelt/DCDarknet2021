@@ -12,6 +12,6 @@ ADD	RSI, 0x4
 In this command, the value 0x10 (16) is MOVed into the register named RSI. Then, 0x4 (4) is ADDed to the value stored in RSI, giving us the value 0x14 (20) being stored in RSI.
 In all of the above, the opcode is given first (MOV or ADD, in this case), and the operands are all that follows (RDI, RSI, 0x6, 0x10, and 0x4, respectively).
 
-To solve this challenge, retrieve the flag string from the given simple program. The program has been compiled with gcc on an x86-64 bit little-endian system, which will need to be manually entered into Ghidra due to the program being stripped to only its vital bytes.
+To solve this challenge, retrieve the flag string at the end of execution from the given simple program. The program has been compiled with gcc on an x86-64 bit little-endian system, which will need to be manually entered into Ghidra due to the program being stripped to only its vital bytes.
 
 Answer: `#s$A4JDZ`
